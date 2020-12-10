@@ -1,0 +1,9 @@
+﻿  lab2.cpp
+D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(55,18): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(125,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(146,39): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(147,22): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(160,17): warning C4101: k: неиспользованная локальная переменная
+D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(160,10): warning C4101: jJ: неиспользованная локальная переменная
+D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(160,14): warning C4101: r: неиспользованная локальная переменная
+  lab2.vcxproj -> D:\Politeh\3_sem\yap\lab_2\lab2\Debug\lab2.exe
