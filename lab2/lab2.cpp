@@ -2,49 +2,28 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #pragma warning(disable:4996)
 
+
+/*примеры:
+SEND+MORE=MONEY
+ELEVEN+NINE+FIVE+FIVE=THIRTY
+*/
 #define max 10 //максимум 10 различных букв может быть
 
 char letters[max]; //хранит используемые буквы
 int lettInt[max];// хранит присвоенные значения буквам
+bool used[max];
 int lettersSize = 0; //кол-во используемых букв
 char** words=(char**)malloc(sizeof(char*));//здесь храним все слова(последнее - это результат)
 int wordCount = 0;//кол-во слов
-void swap(int* a, int* b) {
-	int t = *a;
-	*a = *b;
-	*b = t;
-}
-
-void print(int* a, int size) {
-	int i = 0;
-	while (i < size)
-		printf("%2d ", a[i++]);
-	printf("\n");
-}
-
-//чистка массива
-void arrayClear(int a[], int size)
-{
-	for (int i = 0; i < size; i++)
-		a[i] = -1;
-}
-
-//раскладывает число по цифрам
-int toDigit(int A[], int a) {
-	int i, n;
-	for (i = 0, n = a; n != 0; i++, n = n / 10);
-	int k = i--;                        // Количество цифр
-	for (n = a; n != 0; i--, n = n / 10)
-		A[i] = n % 10;        // Запись остатков в обратном порядке с конца
-	return k;
-}
+float start;
 
 //переводит буквенный массив соответсвтенно в число
-int toNumber(char arr[])
+unsigned long int toNumber(char arr[])
 {
-	int number = 0;
+	unsigned long int number = 0;
 	int sizeArr = strlen(arr);
 	for (int i = 0; i < sizeArr; i++)
 	{
@@ -96,30 +75,49 @@ int checkCombination()
 		for (int i = 0; i < wordCount - 2; i++)
 			printf("%d+", wordsInt[i]);
 		printf("%d=", wordsInt[wordCount - 2]);
-		printf("%d", wordsInt[wordCount - 1]);
+		printf("%d\n", wordsInt[wordCount - 1]);
+
 		return 1;
 	}
 	else
 		return 0;
 }
 
-//проверка на повторения в массиве, возвращает 1 если повторений нет
-int repeatCheck(int arr[], int size)
+void lex(int pos, int n)
 {
-	for (int i = 0; i < size - 1; i++)
-		for (int j = i+1; j < size; j++)
-			if (arr[i] == arr[j])
-				return 0;
-	return 1;
+	if (pos == n) {
+
+		if (checkCombination())
+		{
+			printf("Time - %f sec\n", (clock() - start) / CLOCKS_PER_SEC);
+			exit(1);
+		}
+		return;
+	}
+	for (int i = 0; i < 10; i++) {
+		if (!used[i]) {						//pos==2, i==3;
+			used[i] = true;					//lettInr={0,1,0,3}
+			lettInt[pos] = i;				//used ={1,1,0,1}
+
+			lex(pos + 1,n);
+
+			lettInt[pos] = 0;
+			used[i] = false;
+		}
+	}
 }
 
 int main()
 {
+	srand(time(NULL));
+
 	char strAll[100]; //хранит введеное значение
 
 	printf("enter rebus: ");
 	scanf("%s", strAll);
 	
+	//засекаем время
+	start = clock();
 	/*запоминаем слова в массив строк, последняя строка - результат примера*/
 	
 	for (int i = 0; i < strlen(strAll); i++)
@@ -139,12 +137,10 @@ int main()
 	}
 
 	int resultSize;//размер результата (для диапазона перебора)
-	int lettersSizeMax; //максимальное значение результата
-	int lettersSizeMin; //минимальное значение результата
+	unsigned long long int lettersSizeMax; //максимальное значение результата
 	resultSize = strlen(words[wordCount - 1]);
 	//максимальное значение результата:
-	lettersSizeMax = pow(10, resultSize) - 1;
-	lettersSizeMin = pow(10, resultSize);
+	
 
 	/*запоминаем используемые буквы*/
 	for (int i = 0; i < wordCount; i++)
@@ -160,25 +156,22 @@ int main()
 	int iI, jJ, r, k;
 	long count = 0;         // число перестановок
 
-	//при начальном заполнении учтем, что условие не выполнится при [0]=0
-	lettInt[0] = 1;
-	lettInt[1] = 0;
-	for (iI = 2; iI < lettersSize; iI++)     // Начальное заполнение
-		lettInt[iI] = iI;
-	unsigned long int numberLong;
-	numberLong = toNumber(letters);
-
-	//начинаем перебор, функция сама распечатает результат, после чего произойдет выход из цикла.
-	while (1)
+	//формирование максимально возможного числа
+	lettersSizeMax = 1;
+	for (int i = 0; i < lettersSize; i++)
 	{
-		toDigit(lettInt, numberLong);
-		if (repeatCheck(lettInt, lettersSize))
-			if(checkCombination())
-				break;
-		numberLong++;
-		if( numberLong > 9999999999 ){
-			numberLong = 0;
-		}
+		lettersSizeMax *= 10;
 	}
+	lettersSizeMax--;
+
+	int countTmp = 1;
+	for (int i = lettersSize; i>0 ; i--)
+	{
+		lettersSizeMax -= countTmp*(i-1);
+		countTmp *= 10;
+	}
+
+	lex(0, lettersSize);
+
 	return 0;
 }

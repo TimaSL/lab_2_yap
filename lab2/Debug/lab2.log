@@ -1,9 +1,10 @@
 ﻿  lab2.cpp
-D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(55,18): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(125,20): warning C4018: <: несоответствие типов со знаком и без знака
-D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(146,39): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(147,22): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(160,17): warning C4101: k: неиспользованная локальная переменная
-D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(160,10): warning C4101: jJ: неиспользованная локальная переменная
-D:\Politeh\3_sem\yap\lab_2\lab2\lab2\lab2.cpp(160,14): warning C4101: r: неиспользованная локальная переменная
-  lab2.vcxproj -> D:\Politeh\3_sem\yap\lab_2\lab2\Debug\lab2.exe
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(34,18): warning C4244: =: преобразование "double" в "unsigned long", возможна потеря данных
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(112,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(120,15): warning C4244: =: преобразование "clock_t" в "float", возможна потеря данных
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(123,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(156,17): warning C4101: k: неиспользованная локальная переменная
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(156,6): warning C4101: iI: неиспользованная локальная переменная
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(156,10): warning C4101: jJ: неиспользованная локальная переменная
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(156,14): warning C4101: r: неиспользованная локальная переменная
+  lab2.vcxproj -> D:\gitHub\lab_2_yap\Debug\lab2.exe
