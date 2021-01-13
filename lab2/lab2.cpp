@@ -17,6 +17,7 @@ int lettInt[max];// хранит присвоенные значения бук�
 bool used[max];
 int lettersSize = 0; //кол-во используемых букв
 char** words=(char**)malloc(sizeof(char*));//здесь храним все слова(последнее - это результат)
+int lettNoZero[max];
 int wordCount = 0;//кол-во слов
 float start;
 
@@ -57,11 +58,9 @@ int checkCombination()
 	int ind0 = -1; //индекс буквы, равной 0
 	for (int i = 0; i < lettersSize; i++)
 		if (lettInt[i] == 0)
-			ind0 = i;
-	if (ind0 >= 0)
-		for (int i = 0; i < wordCount; i++)
-			if (words[i][0] == letters[ind0])
+			if (lettNoZero[i] == 1)
 				return 0;
+
 
 	int wordsInt[8];
 	for (int i = 0; i < wordCount; i++)
@@ -153,6 +152,10 @@ int main()
 		}
 	}
 	
+	for (int i = 0; i < lettersSize; i++)
+		for (int j = 0; j < wordCount; j++)
+			if (letters[i] == words[j][0])
+				lettNoZero[i] = 1;
 
 	lex(0, lettersSize);
 

@@ -1,10 +1,9 @@
 ﻿  lab2.cpp
-D:\gitHub\lab_2_yap\lab2\lab2.cpp(34,18): warning C4244: =: преобразование "double" в "unsigned long", возможна потеря данных
-D:\gitHub\lab_2_yap\lab2\lab2.cpp(112,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-D:\gitHub\lab_2_yap\lab2\lab2.cpp(120,15): warning C4244: =: преобразование "clock_t" в "float", возможна потеря данных
-D:\gitHub\lab_2_yap\lab2\lab2.cpp(123,20): warning C4018: <: несоответствие типов со знаком и без знака
-D:\gitHub\lab_2_yap\lab2\lab2.cpp(156,17): warning C4101: k: неиспользованная локальная переменная
-D:\gitHub\lab_2_yap\lab2\lab2.cpp(156,6): warning C4101: iI: неиспользованная локальная переменная
-D:\gitHub\lab_2_yap\lab2\lab2.cpp(156,10): warning C4101: jJ: неиспользованная локальная переменная
-D:\gitHub\lab_2_yap\lab2\lab2.cpp(156,14): warning C4101: r: неиспользованная локальная переменная
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(35,18): warning C4244: =: преобразование "double" в "unsigned long", возможна потеря данных
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(111,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(119,15): warning C4244: =: преобразование "clock_t" в "float", возможна потеря данных
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(122,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\gitHub\lab_2_yap\lab2\lab2.cpp(139,25): warning C4101: lettersSizeMax: неиспользованная локальная переменная
+LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/OPT:ICF"
+lab2.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/OPT:ICF"
   lab2.vcxproj -> D:\gitHub\lab_2_yap\Debug\lab2.exe
