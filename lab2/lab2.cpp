@@ -36,19 +36,20 @@ unsigned long int toNumber(char arr[])
 	}
 	return number;
 }
+
 //запоминаем буквы в массив, size - кол-во уже помещенных букв, lett - буква
-int alph(char letters[],int size, char lett)
+int alph(char lett)
 {
-	for (int i = 0; i <= size; i++)
+	for (int i = 0; i <= lettersSize; i++)
 	{
 		if (lett == letters[i])
-			return size;
+			return lettersSize;
 	}
-	if (size < max)
-		letters[size] = lett;
-	size++;
+	if (lettersSize < max)
+		letters[lettersSize] = lett;
+	lettersSize++;
 
-	return size;
+	return lettersSize;
 }
 
 //возвращает 1, если комбинация работает
@@ -82,9 +83,9 @@ int checkCombination()
 		return 0;
 }
 
-void lex(int pos, int n)
+void lex(int pos)
 {
-	if (pos == n) {
+	if (pos == lettersSize) {
 
 		if (checkCombination())
 		{
@@ -98,7 +99,7 @@ void lex(int pos, int n)
 			used[i] = true;					
 			lettInt[pos] = i;				
 
-			lex(pos + 1,n);
+			lex(pos + 1);
 
 			lettInt[pos] = 0;
 			used[i] = false;
@@ -147,7 +148,7 @@ int main()
 		int j = 0;
 		while (words[i][j] != '\0')
 		{
-			lettersSize = alph(letters, lettersSize, words[i][j]);
+			lettersSize = alph(words[i][j]);
 			j++;
 		}
 	}
@@ -157,7 +158,7 @@ int main()
 			if (letters[i] == words[j][0])
 				lettNoZero[i] = 1;
 
-	lex(0, lettersSize);
+	lex(0);
 
 	return 0;
 }
