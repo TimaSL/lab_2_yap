@@ -95,9 +95,9 @@ void lex(int pos, int n)
 		return;
 	}
 	for (int i = 0; i < 10; i++) {
-		if (!used[i]) {						//pos==2, i==3;
-			used[i] = true;					//lettInr={0,1,0,3}
-			lettInt[pos] = i;				//used ={1,1,0,1}
+		if (!used[i]) {						
+			used[i] = true;					
+			lettInt[pos] = i;				
 
 			lex(pos + 1,n);
 
@@ -153,23 +153,6 @@ int main()
 		}
 	}
 	
-	int iI, jJ, r, k;
-	long count = 0;         // число перестановок
-
-	//формирование максимально возможного числа
-	lettersSizeMax = 1;
-	for (int i = 0; i < lettersSize; i++)
-	{
-		lettersSizeMax *= 10;
-	}
-	lettersSizeMax--;
-
-	int countTmp = 1;
-	for (int i = lettersSize; i>0 ; i--)
-	{
-		lettersSizeMax -= countTmp*(i-1);
-		countTmp *= 10;
-	}
 
 	lex(0, lettersSize);
 
